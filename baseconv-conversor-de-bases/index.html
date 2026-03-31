@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASECONV — Conversor de Bases Numéricas</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BASECONV</div>
+            <div class="subtitle">conversor de bases <span>//</span> bin · oct · dec · hex</div>
+        </header>
+
+        <div class="grid">
+            <!-- Binary -->
+            <div class="card" id="card-bin">
+                <div class="card-header">
+                    <span class="card-label">⬛ Binário</span>
+                    <span class="card-base">BASE 2 · {0,1}</span>
+                </div>
+                <div class="card-body">
+                    <span class="prefix" style="color:var(--accent)">0b</span>
+                    <input type="text" id="bin" placeholder="00000000" spellcheck="false" autocomplete="off" maxlength="64">
+                    <button class="copy-btn" onclick="copyVal('bin')">COPIAR</button>
+                </div>
+                <div class="bit-display" id="bits"></div>
+            </div>
+
+            <!-- Octal -->
+            <div class="card" id="card-oct">
+                <div class="card-header">
+                    <span class="card-label">🔶 Octal</span>
+                    <span class="card-base">BASE 8 · {0–7}</span>
+                </div>
+                <div class="card-body">
+                    <span class="prefix" style="color:var(--accent2)">0o</span>
+                    <input type="text" id="oct" placeholder="0" spellcheck="false" autocomplete="off" maxlength="22">
+                    <button class="copy-btn" onclick="copyVal('oct')">COPIAR</button>
+                </div>
+            </div>
+
+            <!-- Decimal -->
+            <div class="card" id="card-dec">
+                <div class="card-header">
+                    <span class="card-label">🟣 Decimal</span>
+                    <span class="card-base">BASE 10 · {0–9}</span>
+                </div>
+                <div class="card-body">
+                    <span class="prefix" style="color:var(--accent3)">#</span>
+                    <input type="text" id="dec" placeholder="0" spellcheck="false" autocomplete="off" maxlength="20">
+                    <button class="copy-btn" onclick="copyVal('dec')">COPIAR</button>
+                </div>
+            </div>
+
+            <!-- Hex -->
+            <div class="card" id="card-hex">
+                <div class="card-header">
+                    <span class="card-label">🟡 Hexadecimal</span>
+                    <span class="card-base">BASE 16 · {0–9, A–F}</span>
+                </div>
+                <div class="card-body">
+                    <span class="prefix" style="color:var(--accent4)">0x</span>
+                    <input type="text" id="hex" placeholder="00" spellcheck="false" autocomplete="off" maxlength="16">
+                    <button class="copy-btn" onclick="copyVal('hex')">COPIAR</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info bar -->
+        <div class="info-bar" id="info-bar">
+            <span class="info-item">Bits: <strong id="info-bits">—</strong></span>
+            <span class="info-item">Bytes: <strong id="info-bytes">—</strong></span>
+            <span class="info-item">Valor: <strong id="info-val">—</strong></span>
+            <span class="info-item">Potência de 2: <strong id="info-pow">—</strong></span>
+        </div>
+
+        <!-- Quick reference -->
+        <div class="quick-ref">
+            <div class="quick-ref-title">// referência rápida — clique para carregar</div>
+            <div class="ref-grid" id="ref-grid"></div>
+        </div>
+
+        <button class="clear-btn" onclick="clearAll()">[ LIMPAR TUDO ]</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
